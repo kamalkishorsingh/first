@@ -1,0 +1,7 @@
+---
+- hosts: lamp
+  roles:
+    - server
+    - php
+    - mysql
+    - wordpress
