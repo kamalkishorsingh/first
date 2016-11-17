@@ -1,0 +1,14 @@
+---
+- name: Creates backup directory ...
+  file: path={{ file_path }} state=directory
+
+- name: Creates Dest directory ...
+  file: path={{ dest_name }} state=directory
+
+- name: copy in s3 bucket Data ...
+  command: aws s3 cp s3://{{ buket_name }} {{ file_path }} 
+
+- unarchive: src={{ file_path_tar }} dest={{ dest_name }} remote_src=yes
+
+- name: Restoring full database ...
+  command: mongorestore  {{ dest_name }}/opt/mongo_backup/mongoBackup

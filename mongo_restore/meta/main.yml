@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: vagrant
+  description: Quick and easy mongodb backup.
+  license: MIT
+  min_ansible_version: 2.1.0.0
+  platforms:
+  - name: Ubuntu
+    versions:
+    - precise
+    - trusty
+    - vivid
+  galaxy_tags:
+    - mongo

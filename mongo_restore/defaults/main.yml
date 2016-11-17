@@ -1,0 +1,5 @@
+---
+bukcet_name: "bucket-name/Mongo_Backup/mongoBackup-backup.tar.gz"
+file_path: "/opt/data/"
+file_path_tar: "/opt/data/mongoBackup-backup.tar.gz"
+dest_name: "/tmp"

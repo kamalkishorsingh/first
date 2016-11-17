@@ -1,0 +1,4 @@
+---
+- hosts: hostname
+  roles:
+    - { role: mongo_restore, sudo: Yes }
