@@ -1,0 +1,51 @@
+About LAMP and Wordpress role
+wordpress-ansible/roles/
+mysql
+php
+server
+wordpress
+
+1. cd server/tasks
+main.yml
+all installing packages Details
+
+2. roles/mysql/
+tasks/main.yml
+your mysql task variables details
+
+defaults/main.yml
+your mysql user or other databases detaild
+
+3. php/tasks/main.yml
+your server install details we are using apache2 server
+
+4. wordpress/tasks/main.yul
+your wordpress Download and other details
+
+wordpress/handlers/main.yml
+Restart apache server
+
+==================================
+
+
+Run the Ansible Playbook -
+ansible-playbook playbook.yml
+
+hostname wordpress
+if you are using other hostname than edit playbook.yml
+- hosts: your_host_name
+
+
+we are using mysql user name
+roles/mysql/defaults/main.yml
+---
+wp_mysql_db: wordpress
+wp_mysql_user: wordpress
+wp_mysql_password: password
+
+if you want change it then edit file
+vim roles/mysql/defaults/main.yml
+---
+wp_mysql_db: mysql_database_name
+wp_mysql_user: user_mysql
+wp_mysql_password: your_password
