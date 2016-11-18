@@ -1,0 +1,8 @@
+---
+- include: RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: Debian.yml
+  when: ansible_os_family == 'Debian'
+
+#- include: post-setup.yml
