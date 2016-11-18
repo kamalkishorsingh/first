@@ -1,5 +1,6 @@
 ---
-- hosts: lamp
+- hosts: jenkins
+  remote_user: root
   roles:
     - server
     - php

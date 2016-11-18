@@ -1,5 +1,5 @@
 ---
-# tasks file for wp-dependencies
+ tasks file for wp-dependencies
 - name: Update packages (this is equivalent to yum update -y)
   yum: name=* state=latest
 - name: Install dependencies for WordPress
