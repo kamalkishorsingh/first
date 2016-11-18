@@ -49,3 +49,5 @@ vim roles/mysql/defaults/main.yml
 wp_mysql_db: mysql_database_name
 wp_mysql_user: user_mysql
 wp_mysql_password: your_password
+
+Ref link - https://github.com/Aplyca/ansible-role-lamp
