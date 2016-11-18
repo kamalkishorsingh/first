@@ -1,5 +1,5 @@
 ---
-- hosts: jenkins
+- hosts: agent
   remote_user: root
   roles:
     - server
