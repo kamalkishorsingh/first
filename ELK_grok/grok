@@ -1,0 +1,48 @@
+1. log- 
+Jul  6 02:48:05 [localhost-startStop-1] INFO  org.mywork.web.servlet.handler.AbstractHandlerNewMapping (AbstractHandlerNewMapping.java:180) - Mapped {[/**/contactUsFFSalesForce.submit],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.myframework.web.servlet.View com.virginaustralia.website.core.mypaign.presentation.FarePromiseCampaignController.formSubmit(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,com.data.website.core.mycampaign.model.FarePromiseForm,org.dataframework.validation.MyResult) throws java.io.IOException,javax.mail.MessagingException
+
+Grok -
+%{SYSLOGTIMESTAMP:syslog_timestamp} \[%{DATA:data}\] %{WORD:request} %{GREEDYDATA:before_action} - Mapped %{DATA:Submit_values},%{GREEDYDATA:message}
+
+
+
+2. log -
+
+Jul  6 02:40:13 [ajrp-nio-886588-exec-13] INFO  website.core.fhello.presentation.tag.helloBookingPanelStandaloneTag (HelloBookingPanelStandaloneTag.java:80) - :RHS-Booking-Panel:
+
+Grok -
+%{SYSLOGTIMESTAMP:syslog_timestamp} \[%{DATA}\] %{WORD:request} %{GREEDYDATA} - :%{GREEDYDATA:booking}:
+
+3. log -
+
+Jul  6 02:40:13 vagrant-ubuntu-trusty-64 sshd[24302]: Accepted publickey for alok from 192.168.0.0 port 5016 ssh2: RSA 33:b6:12:b3:69:06:4c:55:42:c2:b3:02:11:b1:6c:d6
+
+%{SYSLOGTIMESTAMP:syslog_timestamp} %{SYSLOGHOST:syslog_hostname} %{DATA}: %{WORD:log_word} %{GREEDYDATA}
+
+
+ELK Log creation script -
+
+
+#!/bin/bash
+
+while :
+do
+date_1=`date -u | cut -d ' ' -f2-4`
+date_2=`date -u | cut -d ' ' -f3-5 | cut -d ' ' -f3`
+date_time="$date_1 $date_2"
+echo "$date_time vagrant-ubuntu-trusty-64 sshd[24302]: Accepted publickey for alok from 192.168.0.0 port 5016 ssh2: RSA 33:b6:12:b3:69:06:4c:55:42:c2:b3:02:11:b1:6c:d6" >> /var/log/auth.log
+sleep 2s
+echo "$date_time vagrant-ubuntu-trusty-64 sshd[24302]: Accepted publickey for alok from 192.168.0.0 port 5016 ssh2: RSA 33:b6:12:b3:69:06:4c:55:42:c2:b3:02:11:b1:6c:d6" >> /var/log/auth.log
+sleep 3s
+echo "$date_time vagrant-ubuntu-trusty-64 sshd[24302]: Failed password for alok from 192.168.0.0 port 5742 ssh2" >> /var/log/auth.log
+sleep 2s
+echo "$date_time vagrant-ubuntu-trusty-64 sshd[24302]: Failed password for alok from 192.168.0.0 port 5742 ssh2" >> /var/log/auth.log
+sleep 1s
+echo "$date_time vagrant-ubuntu-trusty-64 sshd[24302]: Failed password for alok from 192.168.0.0 port 5742 ssh2" >> /var/log/auth.log
+sleep 1s
+echo "$date_time vagrant-ubuntu-trusty-64 sshd[24302]: Failed password for alok from 192.168.0.0 port 5742 ssh2" >> /var/log/auth.log
+sleep 4s
+echo "$date_time vagrant-ubuntu-trusty-64 sshd[24302]: Failed password for alok from 192.168.0.0 port 5742 ssh2" >> /var/log/auth.log
+
+sleep 1
+done
