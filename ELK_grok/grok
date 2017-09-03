@@ -19,6 +19,9 @@ Jul  6 02:40:13 vagrant-ubuntu-trusty-64 sshd[24302]: Accepted publickey for alo
 
 %{SYSLOGTIMESTAMP:syslog_timestamp} %{SYSLOGHOST:syslog_hostname} %{DATA}: %{WORD:log_word} %{GREEDYDATA}
 
+4. 2017-09-02 17:24:37,147 DEBUG Hi Dataping Timer (pool Pool-0) com.zaxxer.Data.pool.Pool - Before cleanup pool stats Pool-0 (total=6, inUse=2, avail=6, waiting=4)
+
+%{TIMESTAMP_ISO8601} %{LOGLEVEL} %{GREEDYDATA} \(total=%{INT:total}, inUse=%{INT:IN_USE}, avail=%{INT:AVAIL}, waiting=%{INT:WAITING}\)
 
 ELK Log creation script -
 
